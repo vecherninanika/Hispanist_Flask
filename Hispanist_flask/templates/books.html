@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<link rel="stylesheet" href="static/styles/index.css">
+<style>
+    body {
+      background-image: none;
+    }
+</style>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for book in books %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ book.image }}">
+            <div class="card-body">
+              <p class="card-text">{{ book.title }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{{ book.link }}" class="button">Открыть</a>
+                </div>
+                <small class="text-body-secondary"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}

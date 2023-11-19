@@ -1,0 +1,70 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<br>
+<div id="header">
+  <h2 style="font-style:italic; font-weight:lighter">
+    Онлайн занятия
+  </h2>
+  <br>
+  <p style="font-style: italic; font-weight: lighter">
+    Занимайтесь испанским языком онлайн с репетитором, который создаст для вас индивидуальный учебный план,
+    соответствующий вашим потребностям и уровню знаний.
+    Кроме того, общение с репетитором поможет вам развить устную речь и понимание на слух.
+    Регулярные разговорные практики помогут вам преодолеть языковой барьер и начать свободно общаться на испанском.
+    <br><br>
+    <b>Стоимость группового занятия</b>: 500 рублей
+    <br>
+    <b>Стоимость индивидуального занятия</b>: 1000 рублей
+  </p>
+</div>
+<img src="https://images.emojiterra.com/google/android-nougat/512px/1f4bb.png">
+<br>
+
+
+<link rel="stylesheet" href="static/styles/lessons.css">
+<form action="/contact" method="post">
+  <div class="form-field">
+    <input type="text" name="email" placeholder="Введите email" required="">
+  </div>
+  <div class="form-field">
+    <input type="text" name="phone" placeholder="Введите телефон" required="">
+  </div>
+  <div class="form-field">
+    <input type="text" name="message" placeholder="Введите сообщение" required="">
+  </div>
+  <div class="form-field">
+    <button class="btn" type="submit">Записаться на занятие</button>
+  </div>
+</form>
+
+<script async="true" type="text/javascript"
+  src="https://www.googletagmanager.com/gtag/js?id=G-2BMVGTJJG1&amp;l=dataLayer&amp;cx=c"></script>
+<script async="true" type="text/javascript" src="https://www.google-analytics.com/analytics.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-80520768-2" type="text/javascript"></script>
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80520768-2');
+</script>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8329113460419074"
+  crossorigin="anonymous" type="text/javascript"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8329113460419074" data-ad-slot="2986786685"
+  data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script type="text/javascript">
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2BMVGTJJG1" type="text/javascript"></script>
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BMVGTJJG1');
+</script>
+
+{% endblock %}

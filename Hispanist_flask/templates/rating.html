@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<link rel="stylesheet" href="/static/styles/rating.css">
+
+<div id="header">
+  <h6 style="font-style:italic; font-weight:lighter">
+    Выбрать хороший вуз или школу - это одно из самых важных решений, которое мы принимаем в своей жизни.
+    Выбор специальности должен быть осознанным и основан на наших интересах, навыках и потенциале.
+    Поэтому перед тем как принять решение о выборе вуза, стоит провести тщательный анализ всех возможных вариантов,
+    изучить рейтинги учебных заведений, узнать мнения студентов и выпускников. Если вы интересуетесь испанским языком
+    и планируете связать с ним свое будущее, то мы упростим вашу задачу - вот список лучших учебных заведений России,
+    в которых изучают испанский язык.
+  </h6>
+</div>
+<img src="https://flomaster.top/uploads/posts/2023-10/thumbs/1697199854_flomaster-top-p-universitet-risunok-vkontakte-62.jpg">
+<div class="bg-image">
+<div id="one">
+  <h2 style="font-style:italic; font-weight:lighter">Рейтинг школ</h2>
+  <p>
+  <table class="table_col">
+    <colgroup>
+      <col style="background:#c4f2fc;">
+    </colgroup>
+    <tr>
+      <th>№</th>
+      <th>Название</th>
+      <th>Сайт</th>
+    </tr>
+    {% for school in schools %}
+    <tr>
+      <td>{{ school.id }}</td>
+      <td>{{ school.name }}</td>
+      <td><a href="{{ school.website }}" class="button">{{ school.website }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  </p>
+  <br>
+  <p>
+</div>
+<div id="two">
+  <h2 style="font-style:italic; font-weight:lighter">Рейтинг вузов</h2>
+  <table class="table_col">
+    <colgroup>
+      <col style="background:#fcfcc4;">
+    </colgroup>
+    <tr>
+      <th>№</th>
+      <th>Название</th>
+      <th>Сайт</th>
+    </tr>
+    {% for university in universities %}
+    <tr>
+      <td>{{ university.id }}</td>
+      <td>{{ university.name }}</td>
+      <td><a href="{{ university.website }}" class="button">{{ university.website }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  </p>
+</div>
+</div>
+
+{% endblock %}

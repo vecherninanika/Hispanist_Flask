@@ -1,0 +1,155 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+<style>
+    img {
+        width: 270px;
+        height: 270px;
+        object-fit: cover;
+        margin: 10px auto;
+    }
+
+    h3 input {
+        width: 310px;
+    }
+</style>
+<meta name="author" content="Codeconvey" />
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+
+<section>
+    <div class="rt-container">
+        <div class="col-rt-12">
+            <div class="Scriptcontent">
+                <div class="student-profile py-4">
+                    <form action="/edit" method="post">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent text-center">
+                                            <img class="profile_img" src="static/icon.png" alt="student dp">
+                                            <h3>
+                                                <input id="name" type="text" name="name" placeholder="{{ user.name }}">
+                                            </h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0"><strong class="pr-1">Имя пользователя:</strong><label
+                                                    for="email">
+                                                    <input id="email" type="text" name="username"
+                                                        placeholder="{{ user.username }}"></p>
+                                            </label>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0"><strong class="pr-1">Пароль:</strong><br><label
+                                                    for="email"></label>
+                                                <input type="password" id="password-input"
+                                                    placeholder="Введите старый пароль" name="old_password">
+                                                <a href="#" class="password-control"
+                                                    onclick="return show_hide_password(this);"></a>
+                                            </p>
+                                            </label><br>
+                                            <label for="email"></label>
+                                            <input type="password" id="password-input"
+                                                placeholder="Введите новый пароль" name="password">
+                                            <a href="#" class="password-control"
+                                                onclick="return show_hide_password(this);"></a></p>
+                                            </label>
+                                        </div>
+                                        <script>
+                                            function show_hide_password(target) {
+                                                var input = document.getElementById('password-input');
+                                                if (input.getAttribute('type') == 'password') {
+                                                    target.classList.add('view');
+                                                    input.setAttribute('type', 'text');
+                                                } else {
+                                                    target.classList.remove('view');
+                                                    input.setAttribute('type', 'password');
+                                                }
+                                                return false;
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Общая информация</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th width="30%">Уровень</th>
+                                                    <td width="2%">:</td>
+                                                    <td>
+                                                        <input id="email" type="username" name="level"
+                                                            placeholder="{{ user.level }}">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Регион</th>
+                                                    <td width="2%">:</td>
+                                                    <td>
+                                                        <input id="email" type="username" name="region"
+                                                            placeholder="{{ user.region }}">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Пол</th>
+                                                    <td width="2%">:</td>
+                                                    <td>
+                                                        <input id="email" type="username" name="gender"
+                                                            placeholder="{{ user.gender }}">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Возраст</th>
+                                                    <td width="2%">:</td>
+                                                    <td>
+                                                        <input id="email" type="username" name="age"
+                                                            placeholder="{{ user.age }}">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Цель</th>
+                                                    <td width="2%">:</td>
+                                                    <td>
+                                                        <input id="email" type="username" name="goal"
+                                                            placeholder="{{ user.goal }}">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <button type="submit" class="btn btn-outline-info" href="{{ url_for('edit') }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                            </svg>
+                                            Сохранить
+                                        </button>
+                                    </div>
+                                    <div style="height: 26px"></div>
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>О себе</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <p>
+                                                <input id="info" type="text" name="info" placeholder="{{ user.info }}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+
+
+{% endblock %}

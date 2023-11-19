@@ -1,0 +1,135 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<link rel="stylesheet" href="static/styles/index.css">
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
+      aria-current="true"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+      </svg>
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1>Тест на уровень испанского</h1>
+          <p class="opacity-75">Пройдите тест, чтобы узнать свой уровень владения испанским языком!</p>
+          <p><a class="btn btn-lg btn-primary" href="https://www.lengalia.com/ru/test-urovnja/1.html">Пройти тест</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+      </svg>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>{{ question.question }}</h1>
+          <form class="row g-3" action="/index" method="POST">
+            {% for option in options %}
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="answer_for_eayh_question" id="answer_for_eayh_question"
+                value="{{ option }}">
+              <label class="form-check-label" for="answer_for_eayh_question">
+                {{ option }}
+              </label>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-sm btn-outline-secondary">Ответить</button>
+          </form>
+          <br>
+          <h4>Ответьте на вопрос по истории или географии правильно и получите 1 балл. Баллы можно посмотреть в профиле.
+          </h4>
+          <h3>{{ correct }}</h3>
+          {% if correct == "Неправильно" %}
+          <h3>Правильный ответ: {{question.answer }}</h3>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item active">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+      </svg>
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1>Онлайн-консультации</h1>
+          <p>Хотите получить консультацию по говорению? Получите скидку 20% по промокоду SUON!</p>
+          <p><a class="btn btn-lg btn-primary" href="/lessons">Записаться</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="album py-5 bg-body-tertiary">
+  <!-- <form class="row g-3" action="/" method="POST" onsubmit="return false;">
+    <div class="col-md-4">
+      <select id="inputState" class="form-select" name="topic" onchange="this.form.submit();">
+        <option value="Выберите тему">Выберите тему</option>
+        <option value="Все темы">Все темы</option>
+        {% for topic in topics %}
+          <option value="{{ topic.name }}">{{ topic.name }}</option>
+        {% endfor %}
+    </div>
+  </form> -->
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for article in articles %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ article.image }}">
+          <div class="card-body">
+            <p class="card-text">{{ article.title }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <form action="/article/{{ article.id }}" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                </form>
+              </div>
+              {% if article.id in cart %}
+              <form action="/remove_from_cart/{{ article.id }}" method="POST">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                  </svg>
+                </button>
+              </form>
+              {% else %}
+              <form action="/add_to_cart/{{ article.id }}" method="POST">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                  </svg>
+                </button>
+              </form>
+              {% endif %}
+              <small class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

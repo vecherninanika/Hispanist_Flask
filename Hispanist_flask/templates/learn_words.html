@@ -1,0 +1,90 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<link rel="stylesheet" href="static/styles/rating.css">
+<style type="text/css">
+    body {
+        margin: 0;
+    }
+
+    h2 {
+        height: 80px;
+        /* Высота слоя */
+        background: #FEDFC0;
+        border-bottom: 2px solid #7B5427;
+        padding: 20px;
+        margin: 0;
+        text-align: left;
+    }
+
+
+    #side-button,
+    #collapseExample {
+        position: absolute;
+    }
+
+    a.btn.btn-primary {
+        padding: 20px;
+        background-color: #ffffff;
+        color: blue;
+        border: none;
+    }
+
+    form {
+        left: 300px;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<h2 style="font-style:oblique">Ваш словарь</h2>
+<p class="d-inline-flex gap-1" id="side-button">
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg>
+    </a>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <form action="/learn_words" method="post">
+            <div class="mb-3">
+                <label for="word" class="form-label">Слово</label>
+                <input type="text" class="form-control" id="word" name="word">
+            </div>
+            <div class="mb-3">
+                <label for="translation" class="form-label">Перевод</label>
+                <input type="text" class="form-control" id="translation" name="translation">
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+    </div>
+</div>
+<p>
+<table class="table_col">
+    <colgroup>
+        <col style="background:#C7DAF0;">
+    </colgroup>
+    <tr>
+        <th>Слово</th>
+        <th>Перевод</th>
+    </tr>
+
+    {% for word in words %}
+    <tr>
+        <td>{{ word.word }}</td>
+        <td>{{ word.translation }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</p>
+<br>
+<p>
+
+    {% endblock %}
