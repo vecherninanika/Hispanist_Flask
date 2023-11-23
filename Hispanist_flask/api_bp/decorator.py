@@ -1,6 +1,6 @@
 import jwt
 from flask import request, abort, current_app
-from models import User
+from Hispanist_flask.my_app.models import User
 from functools import wraps
 
 def token_required(func):

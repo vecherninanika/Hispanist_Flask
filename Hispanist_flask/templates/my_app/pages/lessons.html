@@ -1,4 +1,4 @@
-{% extends "base_generic.html" %}
+{% extends "my_app/base_generic.html" %}
 {% block content %}
 
 <br>
@@ -22,8 +22,8 @@
 <br>
 
 
-<link rel="stylesheet" href="static/styles/lessons.css">
-<form action="/contact" method="post">
+<link rel="stylesheet" href="static/my_app/styles/lessons.css">
+<form action="/lessons" method="post">
   <div class="form-field">
     <input type="text" name="email" placeholder="Введите email" required="">
   </div>

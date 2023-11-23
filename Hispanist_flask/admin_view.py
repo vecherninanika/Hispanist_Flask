@@ -2,7 +2,7 @@ import flask_admin as admin
 from flask_admin import helpers, expose
 import flask_login as login
 from flask import redirect, url_for
-from models import User
+from Hispanist_flask.my_app.models import User
 
 class MyAdminIndexView(admin.Admin):
     @expose('/')

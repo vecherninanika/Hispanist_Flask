@@ -1,6 +1,6 @@
-{% extends "base_generic.html" %}
+{% extends "my_app/base_generic.html" %}
 {% block content %}
-<link rel="stylesheet" href="static/styles/index.css">
+<link rel="stylesheet" href="static/my_app/styles/index.css">
 <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
@@ -28,9 +28,9 @@
         preserveAspectRatio="xMidYMid slice" focusable="false">
         <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
       </svg>
-      <div class="container">
+      <div class="container-eayh">
         <div class="carousel-caption">
-          <h1>{{ question.question }}</h1>
+          <h4 style="font-family: Trebuchet MS, Helvetica, sans-serif;">{{ question.question }}</h1>
           <form class="row g-3" action="/index" method="POST">
             {% for option in options %}
             <div class="form-check">
@@ -77,16 +77,20 @@
   </button>
 </div>
 <div class="album py-5 bg-body-tertiary">
-  <!-- <form class="row g-3" action="/" method="POST" onsubmit="return false;">
-    <div class="col-md-4">
-      <select id="inputState" class="form-select" name="topic" onchange="this.form.submit();">
-        <option value="Выберите тему">Выберите тему</option>
-        <option value="Все темы">Все темы</option>
-        {% for topic in topics %}
+  <form class="form-inline" action="/index" method="post">
+    <div class="form-group">
+      <div class="input-group" style="width: 300px;">
+        <select name="topic" class="form-select">
+          <option value="Все темы">Все темы</option>
+          {% for topic in topics %}
           <option value="{{ topic.name }}">{{ topic.name }}</option>
-        {% endfor %}
+          {% endfor %}                                              
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default">Выбрать</button>
     </div>
-  </form> -->
+  </form>
+</form>
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       {% for article in articles %}

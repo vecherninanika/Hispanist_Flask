@@ -1,0 +1,108 @@
+{% extends "my_app/base_generic.html" %}
+{% block content %}
+<style>
+    body {
+        background-image: none;
+    }
+
+    #header {
+        left: 50px;
+        height: 400px;
+        margin: 0;
+        right: 400px;
+        /* border-bottom: 2px solid #7B5427; */
+    }
+
+    h2 {
+        text-align: left;
+    }
+
+    #header,
+    img,
+    .videos {
+        position: absolute;
+    }
+
+    img {
+        height: 200px;
+        left: 1100px;
+    }
+
+    .album.py-5.bg-body-tertiary {
+        margin-top: 300px;
+    }
+
+    .accordion.accordion-flush {
+        margin-top: 200px;
+        margin-left: 50px;
+        margin-right: 100px;
+    }
+</style>
+<br>
+<div id="header">
+    <h2 style="font-style:italic; font-weight:lighter">
+        Олимпиады по испанскому языку
+    </h2>
+    <br>
+    <p style="font-style: italic; font-weight: lighter">
+        Участие в олимпиадах по испанскому языку - это удивительная возможность для студентов показать свои знания, навыки и страсть к изучению испанского языка и культуры. Участие в олимпиадах по испанскому языку может принести множество преимуществ, например, льготы при поступлении в ВУЗ, дополнительные баллы к ЕГЭ, хорошее дополнение к резюме и много другое.
+    </p>
+</div>
+<img
+    src="https://kpml.ru/media/storage/image/20190919/1568913741982963.jpg">
+<br>
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          ВсОШ
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body"><b>Всероссийская олимпиада школьников</b><br><br>
+            Всероссийская олимпиада школьников ежегодно проводится по 24 предметам, в ней участвуют более 6 миллионов человек. В соревновании четыре этапа: школьный, муниципальный, региональный и заключительный. В школьном этапе может участвовать любой желающий, начиная с пятого класса (а соревнования по русскому языку и математике начинаются уже в четвертом).
+            Чтобы попасть на каждый следующий уровень, нужно преодолеть порог баллов, который устанавливается организаторами олимпиады.
+            Муниципальный этап предусмотрен для учащихся 7-11 классов, а в региональном и заключительном могут участвовать школьники 9-11 классов.
+            Хорошие результаты на заключительном этапе Всероссийской олимпиады школьников дают льготы при поступлении: от дополнительных баллов на ЕГЭ или портфолио до зачисления без экзаменов в профильные вузы.
+            <br><br>
+            Всю информацию и расписание этапов можно узнать на сайте <a href="https://vos.olimpiada.ru/">vos.olimpiada.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Перечневые олимпиады
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            Мало кто знает о том, что кроме Всероссийской олимпиады школьников есть еще перечневые олимпиады. Это олимпиады из перечня Минобрнауки, которые дают льготы при поступлении в вузы (некоторые вузы принимают по результатам олимпиад без ЕГЭ, другие дают 100 баллов за профильный предмет). Перечневые олимпиады - хороший запасной вариант для тех, кто не смог стать призером ВсОШ.
+            <br><br>
+            Со списком перечневых олимпиад на 2023-2024 год можно ознакомиться на сайте <a href="https://olimpiada.ru/article/1085">olimpiada.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Как готовиться к олимпиадам
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            Чтобы подготовиться к олимпиадам по испанскому языку, нужно:
+            <br>1. Решать задания прошлых лет
+            <br>   Иногда бывает, что в олимпиаде этого года берут задания, например, 5-летней давности, так что если вам повезет, вам встретится вопрос, который вы уже решали дома. В любом случае, решение задач прошлых лет - это хороший способ подтянуть грамматику и увеличить словарный запас, а также привыкнуть к формату заданий.
+            <br>2. Много слушать и читать на испанском языке
+            <br>   Отличный способ увеличить словарный запас, беглость речи. Если читать что-то из истории и географии Испании и латиноамериканских стран, вопрос с этой информацией может попасться в разделе "лингвострановедение", который есть во многих олимпиадах.
+            <br>3. Мы собрали все необходимые ресурсы для подготовки к ВсОШ и другим олимпиадам в статье <a href="http://127.0.0.1:5000/article/2">"Материалы для подготовки к ВсОШ по испанскому языку".</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

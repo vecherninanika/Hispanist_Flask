@@ -1,5 +1,5 @@
-from models import db, Book
-from app import app
+from Hispanist_flask.my_app.models import db, Book
+from manage import app
 
 books = []
 

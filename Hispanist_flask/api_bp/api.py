@@ -1,10 +1,11 @@
 from flask import Blueprint, jsonify, request, current_app, abort
-from models import User
+from Hispanist_flask.my_app.models import User
 import jwt
 from datetime import datetime, timedelta, timezone
 
 
-api_bp = Blueprint('api', __name__, template_folder='templates', static_folder='static')
+api_bp = Blueprint('api', __name__, template_folder='templates', static_folder='static', url_prefix='/api')
+
 
 @api_bp.route('/')
 def api_index():

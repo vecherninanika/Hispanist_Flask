@@ -1,3 +1,6 @@
-python3.10 -m venv ./venv
-. ./venv/bin/activate
-pip install -r requirements.txt
+Запуск проекта
+chmod +x start.sh
+./start.sh 
+
+Настройка env
+Настройка базы данных

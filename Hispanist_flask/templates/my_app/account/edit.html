@@ -1,4 +1,4 @@
-{% extends 'base_generic.html' %}
+{% extends 'my_app/base_generic.html' %}
 {% block content %}
 
 <style>
@@ -29,7 +29,7 @@
                                 <div class="col-lg-4">
                                     <div class="card shadow-sm">
                                         <div class="card-header bg-transparent text-center">
-                                            <img class="profile_img" src="static/icon.png" alt="student dp">
+                                            <img class="profile_img" src="static/my_app/icon.png" alt="student dp">
                                             <h3>
                                                 <input id="name" type="text" name="name" placeholder="{{ user.name }}">
                                             </h3>
@@ -121,7 +121,7 @@
                                                 </tr>
                                             </table>
                                         </div>
-                                        <button type="submit" class="btn btn-outline-info" href="{{ url_for('edit') }}">
+                                        <button type="submit" class="btn btn-outline-info" href="{{ url_for('account.edit') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                                 <path

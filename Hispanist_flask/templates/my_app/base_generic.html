@@ -17,6 +17,8 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
   <title>Hispanist</title>
+
+
 </head>
 
 <body>
@@ -40,10 +42,14 @@
 
     body {
       margin: 0;
-      background-image: url(static/spain_wallpaper.jpg);
+      background-image: url(static/my_app/spain_wallpaper.jpg);
       background-position: top;
       background-size: cover;
       background-size: 100%;
+    }
+
+    .container-fluid {
+      object-position: center;
     }
   </style>
 
@@ -76,7 +82,7 @@
             <a class="nav-link" href="/learn_words">Учить слова</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('rating') }}">Рейтинг школ и вузов</a>
+            <a class="nav-link" href="/rating">Рейтинг школ и вузов</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,7 +96,7 @@
           </li>
           {% if current_user.is_authenticated %}
           <li class="nav-item-profile">
-            <a class="nav-link" href="{{ url_for('profile') }}">
+            <a class="nav-link" href="/profile">
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                 class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -100,11 +106,11 @@
             </a>
           </li>
           <div class="registration">
-            <a class="btn btn-outline-info" href="{{ url_for('signout') }}" role="button">Выйти</a>
+            <a class="btn btn-outline-info" href="/signout" role="button">Выйти</a>
           </div>
           {% else %}
           <div class="registration">
-            <a class="btn btn-outline-success" href="{{ url_for('signin') }}" role="button">Войти</a>
+            <a class="btn btn-outline-success" href="/signin" role="button">Войти</a>
           </div>
           {% endif %}
         </ul>
@@ -113,6 +119,19 @@
   </nav>
 
   {% endblock %}
+
+  <div class="container-fluid" style="min-height: 100%; z-index: 999999;">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <span style="text-align: center;">{{ message }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
   {% block content %}{% endblock %}
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

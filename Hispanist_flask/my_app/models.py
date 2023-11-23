@@ -1,7 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
-
-db = SQLAlchemy()
+from ..database import db
 
 metadata = db.metadata
 
@@ -25,7 +23,7 @@ class User(UserMixin, db.Model):
     age = db.Column(db.Integer)
     goal = db.Column(db.String(300))
     info = db.Column(db.String())
-    points = db.Column(db.Integer)
+    points = db.Column(db.Integer, default=0)
     words = db.relationship('Word', secondary=user_to_word, back_populates='users', cascade="all, delete")
 
 

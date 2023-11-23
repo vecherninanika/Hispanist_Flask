@@ -1,5 +1,5 @@
-from models import db, Video
-from app import app
+from Hispanist_flask.my_app.models import db, Video
+from manage import app
 
 videos = []
 
