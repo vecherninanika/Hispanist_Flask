@@ -1,7 +1,8 @@
 from flask import (
     Blueprint,
     render_template,
-    request, redirect,
+    request,
+    redirect,
     session,
     flash,
     url_for,
@@ -15,7 +16,7 @@ from Hispanist_flask import login_manager
 from Hispanist_flask.my_app.main_page import log_error
 
 
-module = Blueprint('account', __name__, template_folder='Hispanist_Flask/templates/account', static_folder='static/account', url_prefix='/')
+module = Blueprint('account', __name__, template_folder='./templates/account', static_folder='./static/account', url_prefix='/')
 
 
 @module.route('/signin', methods=['POST', 'GET'])

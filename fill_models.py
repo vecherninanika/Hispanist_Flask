@@ -2,17 +2,17 @@ from Hispanist_flask.my_app.models import *
 from manage import app
 from werkzeug.security import generate_password_hash
 
-# admin = User(name='admin', username='adminuser', password=generate_password_hash('123456'), role=1)
-# with app.app_context():
-#     db.session.add(admin)
-#     db.session.commit()
+admin = User(name='admin', username='admin', password=generate_password_hash('123456'), role=1)
+with app.app_context():
+    db.session.add(admin)
+    db.session.commit()
 
 
 # user = User(name='nika', username='nika', password=generate_password_hash('wangnyang'), role=2)
-with app.app_context():
-    user = User.query.filter(User.id==2)
-    user.points = 0
-    db.session.commit()
+# with app.app_context():
+#     user = User.query.filter(User.id==2)
+#     user.points = 0
+#     db.session.commit()
 
 
 title_1 = 'El Premio Goya'

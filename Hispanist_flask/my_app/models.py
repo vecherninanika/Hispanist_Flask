@@ -34,19 +34,6 @@ class Role(db.Model):
     users = db.relationship('User', backref='user', lazy=True, cascade="all, delete-orphan")
 
 
-class School(db.Model):
-    __tablename__ = 'schools'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), nullable=False)
-    website = db.Column(db.String(200))
-
-
-class University(db.Model):
-    __tablename__ = 'universities'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), nullable=False)
-    website = db.Column(db.String(200))
-
 
 article_to_topic = db.Table('article_to_topic',
                             db.Column('articles', db.Integer, db.ForeignKey('articles.id')),
@@ -68,6 +55,20 @@ class Topic(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
     articles = db.relationship('Article', secondary=article_to_topic, back_populates='topics', cascade="all, delete")
+
+
+class School(db.Model):
+    __tablename__ = 'schools'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
+    website = db.Column(db.String(200))
+
+
+class University(db.Model):
+    __tablename__ = 'universities'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
+    website = db.Column(db.String(200))
 
 
 class Question(db.Model):

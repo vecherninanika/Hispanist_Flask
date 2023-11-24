@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, session
 
-module = Blueprint('cart', __name__, template_folder='Hispanist_Flask/templates/cart', static_folder='static/cart', url_prefix='/')
+module = Blueprint('cart', __name__, template_folder='./templates/cart', static_folder='./static/cart', url_prefix='/')
 
 
 @module.route('/add_to_cart/<article_id>', methods=['GET', 'POST'])

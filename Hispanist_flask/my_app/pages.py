@@ -4,7 +4,6 @@ from flask import (
     request, redirect,
     session,
     flash,
-    get_flashed_messages,
     url_for,
     abort,
 )
@@ -16,7 +15,7 @@ from Hispanist_flask import mail
 from Hispanist_flask.my_app.main_page import log_error
 
 
-module = Blueprint('pages', __name__, template_folder='Hispanist_Flask/templates/pages', static_folder='static/pages', url_prefix='/')
+module = Blueprint('pages', __name__, template_folder='./templates/pages', static_folder='./static/pages', url_prefix='/')
 
 
 @module.route('/rating')

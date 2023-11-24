@@ -1,3 +1,4 @@
+docker start hispanist_project
 python3.10 -m venv ./venv
 . ./venv/bin/activate
 pip install -r requirements.txt

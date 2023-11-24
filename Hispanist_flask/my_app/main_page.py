@@ -11,25 +11,17 @@ from flask import (
 )
 from .models import *
 from flask_login import current_user
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
 from sqlalchemy.sql.expression import func
 from sqlalchemy.exc import SQLAlchemyError
 from Hispanist_flask import login_manager
 from http import HTTPStatus
 
-module = Blueprint('main_page', __name__, template_folder='Hispanist_Flask/templates/main_page', static_folder='static/main_page', url_prefix='/')
+module = Blueprint('main_page', __name__, template_folder='./templates/main_page', static_folder='./static/main_page', url_prefix='/')
 
 
 def log_error(*args, **kwargs):
     current_app.logger.error(*args, **kwargs)
 
-
-admin = Admin(module, name='microblog', template_mode='bootstrap3')
-admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(School, db.session))
-admin.add_view(ModelView(University, db.session))
-admin.add_view(ModelView(Article, db.session))
 
 
 @module.route('/index', methods=['GET', 'POST'])
