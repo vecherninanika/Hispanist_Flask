@@ -1,5 +1,4 @@
 **Веб-приложение для изучения испанского языка**
-![Image alt](https://github.com/vecherninanika/Hispanist_Flask/illustration.png)
 
 Интерфейс:
 - регистрация и авторизация пользователей
