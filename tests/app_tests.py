@@ -1,10 +1,11 @@
 import os
-import unittest
-import tempfile
 import sys
+import tempfile
+import unittest
 
 from flask import app
-sys.path.append('./')
+
+sys.path.append("./")
 import manage
 
 # def init_db():
@@ -16,21 +17,21 @@ import manage
 
 
 class AppTestCase(unittest.TestCase):
-
     def setUp(self):
-        self.db_fd, manage.app.config['DATABASE'] = tempfile.mkstemp()
-        manage.app.config['TESTING'] = True
+        self.db_fd, manage.app.config["DATABASE"] = tempfile.mkstemp()
+        manage.app.config["TESTING"] = True
         self.app = manage.app.test_client()
         # manage.app.init_db()
 
     def tearDown(self):
         os.close(self.db_fd)
-        os.unlink(manage.app.config['DATABASE'])
+        os.unlink(manage.app.config["DATABASE"])
 
     def test_empty_db(self):
-        rv = self.app.get('/')
+        rv = self.app.get("/")
         print(rv.data)
-        assert '<title>Hispanist</title>' in rv.data
+        assert "<title>Hispanist</title>" in rv.data
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

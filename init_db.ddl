@@ -34,8 +34,6 @@ CREATE TABLE IF NOT EXISTS schools  (id uuid primary key default uuid_generate_v
                                     place INT NOT NULL,
                                     website TEXT);
 
-drop table universitys;
-
 CREATE TABLE IF NOT EXISTS universities  (id uuid primary key default uuid_generate_v4(), 
                                         name TEXT NOT NULL,
                                         place INT NOT NULL,
